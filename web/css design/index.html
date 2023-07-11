@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Styles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: "Times New Roman", serif;
+            color: #336699;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        p {
+            font-family: "Courier New", monospace;
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 20px;
+        }
+
+        .repeated-image {
+            background-image: url('./20191025_202645.jpg');
+            background-repeat: repeat;
+        }
+
+        a:link {
+            color: #336699;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a:visited {
+            color: #9900cc;
+        }
+
+        a:active {
+            color: #cc0000;
+        }
+
+        .hidden-element {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <h1>Font Styles</h1>
+    <p>This is a paragraph with the default font style.</p>
+    <p style="font-style: italic;">This is a paragraph with italic font style.</p>
+    <p style="font-weight: bold;">This is a paragraph with bold font style.</p>
+    <p style="text-decoration: underline;">This is a paragraph with underline font style.</p>
+
+    <div class="repeated-image">
+        <h1>Background Image</h1>
+        <p>This div has a repeated background image.</p>
+        <p>The background image is repeated horizontally and vertically.</p>
+    </div>
+
+    <h1>Links</h1>
+    <p><a href="#">Normal Link</a></p>
+    <p><a href="#" style="text-decoration: underline;">Hovered Link</a></p>
+    <p><a href="#" style="color: #9900cc;">Visited Link</a></p>
+    <p><a href="#" style="color: #cc0000;">Active Link</a></p>
+
+    <h1>Element Visibility</h1>
+    <p>This paragraph is visible.</p>
+    <p class="hidden-element">This paragraph is hidden.</p>
+</body>
+</html>

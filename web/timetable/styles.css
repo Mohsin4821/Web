@@ -1,0 +1,43 @@
+/* Apply some basic styles to the table */
+.time_table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .time_table th,
+  .time_table td {
+    border: 1px solid black;
+    padding: 8px;
+  }
+  
+  .time_table th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Add a class to style the break cells */
+  .break {
+    background-color: #ccc;
+  }
+  
+  /* Style the lab cells */
+  .time_table td div {
+    margin-bottom: 5px;
+  }
+  
+  .time_table td div p {
+    margin: 0;
+  }
+  
+  /* Apply specific styles to individual days */
+  .time_table td:first-child {
+    font-weight: bold;
+  }
+  
+  /* Style the title */
+  .title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  

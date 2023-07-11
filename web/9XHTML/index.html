@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Registration Form</title>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form>
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" required /><br />
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" required /><br />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" required /><br />
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required /><br />
+
+        <input type="button" value="Register" onclick="validateForm()" />
+    </form>
+    <script type="text/javascript">
+        function validateForm() {
+            var userId = document.getElementById("userId").value.trim();
+            var name = document.getElementById("name").value.trim();
+            var password = document.getElementById("password").value;
+            var email = document.getElementById("email").value.trim();
+
+            var errors = [];
+
+            // Validate User ID
+            if (userId.length < 5 || userId.length > 12) {
+                errors.push("User ID should be between 5 and 12 characters");
+            }
+
+            // Validate Name
+            if (!/^[a-zA-Z ]{15,}$/.test(name)) {
+                errors.push("Name should only contain alphabets and have a minimum length of 15 characters");
+            }
+
+            // Validate Password
+            if (!/(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}/.test(password)) {
+                errors.push("Password should be eight characters including one uppercase letter, one special character, and alphanumeric characters");
+            }
+
+            // Validate E-mail
+            if (!/^[\w.-]+@[a-zA-Z_-]+?\.[a-zA-Z]{2,}$/.test(email)) {
+                errors.push("Invalid E-mail address");
+            }
+
+            if (errors.length > 0) {
+                var errorText = "Please fix the following errors:\n" + errors.join("\n");
+                alert(errorText);
+            } else {
+                alert("Registration Successful!");
+            }
+        }
+    </script>
+</body>
+</html>

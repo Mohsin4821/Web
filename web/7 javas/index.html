@@ -1,0 +1,121 @@
+<!-- Program Statement:
+  Create HTML Page that contains form with fields Name, Email, 
+  Mobile No, Gender, Favorite Color and a button. Write a JavaScript code to 
+  validate all the fields when the button is clicked, later combine and display the 
+  information in textbox.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Form</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Details Form</h1>
+    </header>
+    <main>
+      <form action="/" id="details-form">
+        <ul class="sec">
+          <li>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="Name" required />
+          </li>
+          <li>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="Email" required />
+          </li>
+          <li>
+            <label for="mobile-no">Mobile No.</label>
+            <input type="text" id="mobile-no" name="Mobile-Number" required />
+          </li>
+          <li>
+            <label for="gender">Gender</label>
+            <input type="text" id="gender" name="Gender" required />
+          </li>
+          <li>
+            <label for="fav-col">Favourite Color</label>
+            <input type="text" id="fav-col" name="Favourite-Color" required />
+          </li>
+        </ul>
+        <div id="btn-con">
+          <button type="submit" class="btn" id="submit">Submit</button>
+        </div>
+      </form>
+      <div id="received-container">
+        <h3>Received Details</h3>
+        <textarea name="received" id="received" cols="80" rows="15"></textarea>
+      </div>
+    </main>
+    
+    <script>
+      const formElement = document.getElementById("details-form");
+const receivedContainerElement = document.getElementById("received-container");
+const receivedElement = document.getElementById("received");
+formElement.addEventListener("submit", function (event) {
+  event.preventDefault();
+  let values = "";
+  for (let i = 0; i < formElement.elements.length - 1; i++) {
+    if (formElement[i].value.trim() === "") {
+      values = "Some of the inputs are Empty!!!";
+    }
+
+    if (formElement[i].type === "email") {
+      if (
+        !formElement[i].value.includes("@") ||
+        !formElement[i].value.includes(".")
+      ) {
+        values = "Some input values are invalid. Check the inputs";
+        break;
+      }
+    }
+
+    if (formElement[i].name === "Gender") {
+      if (
+        formElement[i].value.toUpperCase() !== "MALE" &&
+        formElement[i].value.toUpperCase() !== "FEMALE" &&
+        formElement[i].value.toUpperCase() !== "OTHERS"
+      ) {
+        values = "Some input values are invalid. Check the inputs";
+        break;
+      }
+    }
+
+    if (formElement[i].name === "Mobile-Number") {
+      if (formElement[i].value.length !== 10) {
+        values = "Some input values are invalid. Check the inputs";
+        break;
+      }
+    }
+  }
+  if (values === "") {
+    for (let i = 0; i < formElement.elements.length - 1; i++) {
+      values += formElement[i].name;
+      if (
+        formElement[i].name === "Mobile-Number" ||
+        formElement[i].name === "Favourite-Color"
+      ) {
+        values += ":\t\t";
+      } else {
+        values += ":\t\t\t\t";
+      }
+      values += formElement[i].value;
+      values += "\n";
+    }
+  }
+  if (
+    values === "Some of the inputs are Empty!!!" ||
+    values === "Some input values are invalid. Check the inputs"
+  ) {
+    receivedElement.style.textAlign = "center";
+  } else {
+    receivedElement.style.textAlign = "left";
+  }
+  receivedElement.value = values;
+  receivedContainerElement.style.display = "block";
+});
+    </script>
+  </body>
+</html>

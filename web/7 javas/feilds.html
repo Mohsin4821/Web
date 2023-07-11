@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+<body>
+    <h2>Form</h2>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        <br>
+
+        <label for="mobile">Mobile No:</label>
+        <input type="tel" id="mobile" required>
+        <br>
+
+        <label for="gender">Gender:</label>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Female</label>
+        <br>
+
+        <label for="color">Favorite Color:</label>
+        <input type="color" id="color" required>
+        <br>
+
+        <button type="button" onclick="validateForm()">Submit</button>
+    </form>
+
+    <h2>Information</h2>
+    <textarea id="result" rows="10" cols="30" readonly></textarea>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var mobile = document.getElementById("mobile").value.trim();
+            var gender = document.querySelector('input[name="gender"]:checked');
+            var color = document.getElementById("color").value;
+
+            var errors = [];
+            if (name === "") {
+                errors.push("Name is required");
+            }
+            if (email === "") {
+                errors.push("Email is required");
+            }
+            if (mobile === "" || mobile.length !== 10) {
+                errors.push("Mobile No should be 10 digits");
+            }
+            if (!gender) {
+                errors.push("Gender is required");
+            }
+
+            if (errors.length > 0) {
+                var errorText = "Please fix the following errors:\n" + errors.join("\n");
+                alert(errorText);
+            } else {
+                var information = "Name: " + name + "\n" +
+                    "Email: " + email + "\n" +
+                    "Mobile No: " + mobile + "\n" +
+                    "Gender: " + gender.value + "\n" +
+                    "Favorite Color: " + color;
+                document.getElementById("result").value = information;
+            }
+        }
+    </script>
+</body>
+</html>

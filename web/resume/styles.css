@@ -1,0 +1,54 @@
+/* External CSS */
+body {
+    font-family: Arial, sans-serif;
+    color: #333333;
+}
+
+h1 {
+    color: #0099cc;
+    text-align: center;
+    margin-top: 20px;
+}
+
+h2 {
+    color: #336699;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.section {
+    margin-top: 30px;
+}
+
+.profile-pic {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.contact {
+    margin-top: 20px;
+}
+
+.contact a {
+    color: #0099cc;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* Internal CSS */
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}

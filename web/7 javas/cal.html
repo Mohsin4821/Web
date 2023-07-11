@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+    <h2>Calculator</h2>
+    <input type="number" id="num1" placeholder="Number 1">
+    <input type="number" id="num2" placeholder="Number 2">
+    <br>
+    <button onclick="calculate()">Calculate</button>
+    <br>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            // Get the input values
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+
+            // Perform the calculations
+            let addition = num1 + num2;
+            let subtraction = num1 - num2;
+            let multiplication = num1 * num2;
+            let division = num1 / num2;
+
+            // Display the results
+            let resultText = `Addition: ${addition}<br>
+                              Subtraction: ${subtraction}<br>
+                              Multiplication: ${multiplication}<br>
+                              Division: ${division}`;
+            document.getElementById("result").innerHTML = resultText;
+        }
+    </script>
+</body>
+</html>
